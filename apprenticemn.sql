@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2021 at 02:21 PM
+-- Generation Time: May 03, 2021 at 03:04 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -49,6 +49,14 @@ CREATE TABLE `posts` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `user_id`, `post_title`, `post_content`, `status`, `updated_at`, `created_at`) VALUES
+(1, 706, 'asfdafsd afsd', 'as dfas dfasfd asfd as fd', 'published', '2021-05-03 12:41:39', '2021-05-03 12:41:39'),
+(2, 706, 'asdfafsd', 'status bol draft', 'draft', '2021-05-03 12:41:39', '2021-05-03 12:41:39');
 
 -- --------------------------------------------------------
 
@@ -817,7 +825,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`

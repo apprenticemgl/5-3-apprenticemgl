@@ -23,29 +23,27 @@ include 'includes/header.php';
                 <br><br>
                 <?php if(count($posts) > 0): ?>
                     <?php foreach($posts as $post): ?>
-                        <?php print_r($post); ?>
-                        <hr>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $post['post_title']; ?></h5>
+                                <p class="card-text"><?php echo $post['post_content']; ?></p>
+                            </div>
+                        </div>
                     <?php endforeach; ?>
                 <?php endif; ?>
 
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $user['name']; ?></h5>
-                        <p class="card-text"><?php echo $user['username']; ?></p>
-                        <a href="mailto:<?php echo $user['email']; ?>" class="btn btn-primary"><?php echo $user['email']; ?></a>
-                    </div>
-                </div>
 <hr>
-                <form action="/edit.php" method="POST">
+                <form action="/createpost.php" method="POST">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Username</label>
-                        <input type="text" name="username" value="<?php echo $user['username']; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label for="exampleInputEmail1" class="form-label">Title</label>
+                        <input type="text" name="post_title" class="form-control">
                     </div>
+
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Name</label>
-                        <input type="text" name="name" value="<?php echo $user['name']; ?>" class="form-control" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1" class="form-label">Content</label>
+                        <textarea name="post_content" class="form-control"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <button type="submit" class="btn btn-primary">Post</button>
                 </form>
             </div>
         </div>
