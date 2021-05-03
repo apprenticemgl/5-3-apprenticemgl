@@ -1,11 +1,5 @@
 <?php
-session_start();
-// print_r($_POST);
-// die();
-if(!isset($_SESSION['username'])) {
-    header("Location: /");
-    exit();
-}
+include 'includes/logincheck.php';
 
 if(isset($_POST['name']) && $_POST['name'] != "") {
     $name = $_POST['name'];
