@@ -1,14 +1,19 @@
 <?php
 include 'includes/logincheck.php';
-$con;
-$user;
+// $con;
+// $user;
 
-$user['id'];
 
-$_POST['post_title'];
-$_POST['post_content'];
+// prepare and bind
+$beldex = $con->prepare("insert into `posts` (user_id, post_title, post_content) values (?,?,?)");
+$beldex->bind_param("isb", $user_id, $post_title, $post_content);
 
-$results = $con->query("insert into `posts` (user_id, post_title, post_content) values ()");
+$user_id = $user['id'];
+$post_title = filter_var($_POST['post_title'], FILTER_SANITIZE_STRING);
+$post_content = filter_var($_POST['post_content'], FILTER_SANITIZE_STRING);
+// set parameters and execute
+
+$results = $beldex->execute();
 
 if($results) {
     // posts.php
